@@ -3,26 +3,18 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>
-        </title>
-        
-        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
-        <link rel="stylesheet" href="/css/index.css" />
-        <style>
-            /* App custom styles */
-        </style>
-        <script type="text/javascript" charset="utf-8" src="PhoneGap.js"></script>
-        
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
-        </script>
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.js">
-        </script>
-        <script src="/js/my.js">
-        </script>
+        <title> Dog log</title>
+        <link rel="stylesheet" href="../www/css/ratchet.css" />
+        <script type="text/javascript" src="../www/js/jquery.mobile-1.2.0.js"></script>
+         <script type="text/javascript" src="../www/cordova-2.2.0.js"></script>
+        <script type="text/javascript" src="../www/js/ratchet.js"></script>
+    	        <script type="text/javascript" src="../www/js/tracker.js"></script>
+    	
     </head>
+
     <body>
         <!-- Home -->
-        <div data-role="page" id="page1">
+        <div data-role="page" id="home">
             <div data-theme="a" data-role="header">
                 <h3 id="Mainheader">
                     DogLog
@@ -44,12 +36,33 @@
                         <input name="" id="password" placeholder="Password" value="" type="password" />
                     </fieldset>
                 </div>
-              
-                <a data-theme="b" type="submit" value="Submit" href="/log"> Submit</a>
-            </div>
+                <a href="#log" data-transition="none"> Submit </a>
+                </div>
         </div>
         <script>
             //App custom javascript
-        </script>
+    <div data-role="page" id="log">
+
+    <div data-role="header">
+    
+        <h1>log your walk</h1>
+    </div>
+
+        <div data-role="logbar">
+            <ul>
+                <li><a href="#poop" data-transition="none" data-icon="poop">poop</a></li>
+                <li><a href="#pee" data-transition="none" data-icon="pee">pee</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div data-role="content">   
+
+        <button data-role="button" id="start_logging">Start Tracking</button>
+        <button data-role="button" id="end_logging">Stop Tracking</button>  
+        
+                <p id="startTracking_info"></p>
+    </div>
+
     </body>
 </html>
