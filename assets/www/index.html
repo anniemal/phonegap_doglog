@@ -4,14 +4,18 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title> Dog log</title>
+            <script type="text/javascript" src="../www/js/jquery-1.8.2.js"></script>
+             <script type="text/javascript" src="../www/js/jquery.mobile-1.1.0.min.js"></script>
         <link rel="stylesheet" href="../www/css/ratchet.css" />
-        <script type="text/javascript" src="../www/js/jquery.mobile-1.2.0.js"></script>
-         <script type="text/javascript" src="../www/cordova-2.2.0.js"></script>
-        <script type="text/javascript" src="../www/js/ratchet.js"></script>
-    	        <script type="text/javascript" src="../www/js/tracker.js"></script>
-    	
-    </head>
+                <link rel="stylesheet" href="../www/css/jquery.mobile-1.1.0.min.css" />
+       
+            
 
+        <script type="text/javascript" src="../www/cordova-2.2.0.js"></script>
+        <script type="text/javascript" src="../www/js/ratchet.js"></script>
+    	  <script type="text/javascript" src="../www/js/tracker.js"></script>
+        <script type="text/javascript" src="../www/js/form_submit.js"></script>
+    </head>
     <body>
         <!-- Home -->
         <div data-role="page" id="home">
@@ -20,48 +24,66 @@
                     DogLog
                 </h3>
             </div>
-            <div data-role="content">
+            <form  id='login_form'>
+            <div data-role="content" login='1'>
                 <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup">
                         <label for="email">
                             Sign in
                         </label>
-                        <input name="" id="email" placeholder="Email" value="" type="email" />
+                        <input type="email" id="email" name="email" placeholder="Email" value="" type="email" />
                     </fieldset>
                 </div>
                 <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup">
                         <label for="password">
                         </label>
-                        <input name="" id="password" placeholder="Password" value="" type="password" />
+                        <input name="password" id="password"  placeholder="Password" value="" type="password" />
                     </fieldset>
                 </div>
-                <a href="#log" data-transition="none"> Submit </a>
-                </div>
-        </div>
-        <script>
-            //App custom javascript
-    <div data-role="page" id="log">
+                <input id="login_submit" type="submit" value="Save">
 
+                <a href="#log" data-transition="none"> next Page </a>
+                </div>
+              </form>
+        </div>
+    
+    <div data-role="page" id="log">
     <div data-role="header">
     
-        <h1>log your walk</h1>
+        <h1>Log Your Dog</h1>
     </div>
+    <div data-role="sub-header"><ul class="segmented-controller">
+  <li class="active">
+    <a id ='poop'> Poop</a>
+  </li>
+  <li>
+    <a id="pee">Pee</a>
+  </li>
+  <li>
+    <a id="friend">Friend</a>
+  </li>
+   <li>
+    <a id="frenemy">Frenemy</a>
+  </li>
+</ul>
 
-        <div data-role="logbar">
-            <ul>
-                <li><a href="#poop" data-transition="none" data-icon="poop">poop</a></li>
-                <li><a href="#pee" data-transition="none" data-icon="pee">pee</a></li>
-            </ul>
-        </div>
+</div>
+
+   
+    <div data-role="content" >   
+
+        <button data-role="button" id="start_logging">Start Loggin'</button>
+        <button data-role="button" id="end_logging">Stop Loggin'</button>  
+         <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUSWiuAj-w8Cz7CV0JwpTmWVI9TnyaK6Y&sensor=false"> </script>
+      
+     <div id="map_canvas" style="position:absolute;bottom:30px;left:30px;width:75%;height:300px;">
     </div>
-
-    <div data-role="content">   
-
-        <button data-role="button" id="start_logging">Start Tracking</button>
-        <button data-role="button" id="end_logging">Stop Tracking</button>  
-        
-                <p id="startTracking_info"></p>
+       
+    </script>
+    </script>
+    </div>
     </div>
 
     </body>
