@@ -1,19 +1,30 @@
 $('#login_submit').live('click', function(){
 	 
-	 var url = "http://10.0.0.10:5000/save_user";
-	
-		 var email = $('input[name=email]');
-        var password = $('input[name=password]');
+	var url = "http://10.0.0.13:5000/m_authenticate";
 
-        var data = 'email=' + email.val() + '&password=' + password.val();
+	var email_val=document.getElementById('email').value;
+	console.log(email_val);
+
+	var password_val=document.getElementById('password').value;
+	console.log(password_val);
+	
+	var data = {email: email_val, password: password_val};
+	console.log(data);
+
+
+	// $.getJSON(url,data,function(data){;
+	// console.log(data)};
+		
 	$.ajax({
 
 		type:'POST',
 		data: data,
-		url:url,
+		url: url,
 		success: function(data){
 			console.log(data);
-			
+			var str_data=JSON.stringify(data);
+			console.log(str_data);
+
 			alert('You have successfully logged in to Dog Log. Get loggin');
 		},
 		error: function(data){
@@ -22,7 +33,6 @@ $('#login_submit').live('click', function(){
 			alert('There was an error with your email or password. Please try logging in again.');
 		}
 	});
-
 
 	return false;
 });
