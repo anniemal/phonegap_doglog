@@ -4,16 +4,13 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title> Dog log</title>
-            <script type="text/javascript" src="../www/js/jquery-1.8.2.js"></script>
-             <script type="text/javascript" src="../www/js/jquery.mobile-1.1.0.min.js"></script>
+        <script type="text/javascript" src="../www/js/jquery-1.8.2.js"></script>
+        <script type="text/javascript" src="../www/js/jquery.mobile-1.1.0.min.js"></script>
         <link rel="stylesheet" href="../www/css/ratchet.css" />
-                <link rel="stylesheet" href="../www/css/jquery.mobile-1.1.0.min.css" />
-       
-            
-
+        <link rel="stylesheet" href="../www/css/jquery.mobile-1.1.0.min.css" />
         <script type="text/javascript" src="../www/cordova-2.2.0.js"></script>
         <script type="text/javascript" src="../www/js/ratchet.js"></script>
-    	  <script type="text/javascript" src="../www/js/tracker.js"></script>
+    	<script type="text/javascript" src="../www/js/tracker.js"></script>
         <script type="text/javascript" src="../www/js/form_submit.js"></script>
     </head>
     <body>
@@ -42,12 +39,63 @@
                     </fieldset>
                 </div>
                 <input id="login_submit" type="submit" value="Save">
+                <a href='#new_user_page' class="button">New DogWalker?</a>
 
                 <a href="#log" data-transition="none"> next Page </a>
                 </div>
               </form>
         </div>
+
+        <div data-role="page" id="new_user_page">
+            <div data-theme="a" data-role="header">
+                <h3 id="Mainheader">
+                    DogLog
+                </h3>
+            </div>
+            <form  id='new_user_form'>
+            <div data-role="content">
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        First Name: <input type="text" id="first_name" name="first_name" placeholder="first name" />
+                    </fieldset>
+                </div>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                       Last Name: <input name="last_name" id="last_name"  placeholder="last name" value="" type="text" />
+                    </fieldset>
+                </div>
+
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                      Company Name:  <input type="text" id="company_name" name="company_name" placeholder="company name" />
+                    </fieldset>
+                </div>
+
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        Phone Number: <input type="tel" id="phone" name="phone" placeholder="phone number"/>
+                    </fieldset>
+                </div>
+
+
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                      Email:  <input type="text" id="new_user_email" name="new_user_email" placeholder="email@email.com"/>
+                    </fieldset>
+                </div>
+
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                       Password: <input type="password" id="new_user_password" name="new_user_password" placeholder="password"/>
+                    </fieldset>
+                </div>
+                <input id="new_user_submit" type="submit" value="Submit">
+                <a href="#log" data-transition="none"> next Page </a>
+                </div>
+              </form>
+        </div>
     
+
     <div data-role="page" id="log">
     <div data-role="header">
     
@@ -55,7 +103,7 @@
     </div>
     <div data-role="sub-header"><ul class="segmented-controller">
   <li>
-    <a id ='poop'> Poop</a>
+    <a id ='poop'>Poop</a>
   </li>
   <li>
     <a id="pee">Pee</a>
@@ -78,11 +126,9 @@
         <button data-role="button" id="end_logging">Stop Loggin'</button>  
       
       
-     <div id="map_canvas" style="position:absolute;bottom:30px;left:30px;width:75%;height:300px;">
+    <div id="map_canvas" style="position:absolute;bottom:30px;left:30px;width:75%;height:300px;">
     </div>
-       
-    </script>
-    </script>
+    <div style="position:absolute;bottom:0px;left:0px;width:100%;height:30px"><span id="ELAPSED"></span> </div>
     </div>
     </div>
 
