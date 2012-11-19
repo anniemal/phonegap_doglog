@@ -228,6 +228,7 @@ a {
   text-align: center;
   text-shadow: 0 -1px rgba(0, 0, 0, .5);
   white-space: nowrap;
+
 }
 
 .bar-title > a:not([class*="button"]) {
@@ -1046,6 +1047,7 @@ select {
   color: #fff;
   text-align: center;
   text-shadow: 0 -1px rgba(0, 0, 0, .5);
+  
 }
 
 /* Generic style for all buttons in .popover-header */

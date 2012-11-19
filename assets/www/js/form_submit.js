@@ -51,6 +51,8 @@ $('#new_user').live('click', function(){
 			console.log(data);
 			var str_data=JSON.stringify(data);
 			console.log(str_data);
+			window.location.href="#new_owner_page";
+
 		
 		},
 		error: function(data){
@@ -61,3 +63,71 @@ $('#new_user').live('click', function(){
 	return false;
 });
 
+$('#dog_submit').live('click', function(){
+	 
+	var url = "http://10.0.0.13:5000/m_save_owner";
+	var owner_first_name_val=document.getElementById('owner_first_name').value;
+	var owner_last_name_val=document.getElementById('owner_last_name').value;
+	var owner_phone_val=document.getElementById('owner_phone').value;
+	var owner_email_val=document.getElementById('owner_email').value;
+	var emergency_contact_val=document.getElementById('emergency_contact').value;
+	var contact_phone_val=document.getElementById('contact_phone').value;
+	var vet_name_val=document.getElementById('vet_name').value;
+	var vet_phone_val=document.getElementById('vet_phone').value;
+	var data = {first_name: first_name_val, last_name: last_name_val, phone_number: owner_phone_val,
+				email: owner_email_val, emergency_contact: emergency_contact_val, contact_phone: contact_phone_val, 
+				vet_name: vet_name_val, vet_phone: vet_phone_val};
+	console.log(data);
+
+	$.ajax({
+
+		type:'POST',
+		data: data,
+		url: url,
+		success: function(data){
+			console.log(data);
+			var str_data=JSON.stringify(data);
+			console.log(str_data);
+			window.location.href="#new_dog_page";
+
+		
+		},
+		error: function(data){
+			console.log(data);
+			alert('There was an error reg. you. Please try again.');
+		}
+	});
+	return false;
+});
+
+$('#owner_submit').live('click', function(){
+	 
+	var url = "http://10.0.0.13:5000/m_save_dog";
+	var dog_name_val=document.getElementById('dog_name').value;
+	var sex_val=document.getElementById('sex').value;
+	var breed_val=document.getElementById('breed').value;
+	var needs_val=document.getElementById('needs').value;
+	var data = {dog_name: dog_name_val, sex: sex_val, breed: breed_val, needs: needs_vals
+			};
+	console.log(data);
+
+	$.ajax({
+
+		type:'POST',
+		data: data,
+		url: url,
+		success: function(data){
+			console.log(data);
+			var str_data=JSON.stringify(data);
+			console.log(str_data);
+			window.location.href="#add_additional";
+
+		
+		},
+		error: function(data){
+			console.log(data);
+			alert('There was an error reg. you. Please try again.');
+		}
+	});
+	return false;
+});

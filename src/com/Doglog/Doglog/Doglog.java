@@ -30,6 +30,10 @@ public class Doglog extends DroidGap
     {
         super.onCreate(savedInstanceState);
         super.loadUrl("file:///android_asset/www/index.html");
+//        super.appView.setVerticalScrollBarEnabled(true);
+//        super.appView.setHorizontalScrollBarEnabled(false);
+        // set scrollbar style
+//        super.appView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
     }
 }
 

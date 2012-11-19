@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="../www/css/jquery.mobile-1.1.0.min.css" />
         <script type="text/javascript" src="../www/cordova-2.2.0.js"></script>
         <script type="text/javascript" src="../www/js/ratchet.js"></script>
-    	<script type="text/javascript" src="../www/js/tracker.js"></script>
+      <script type="text/javascript" src="../www/js/tracker.js"></script>
         <script type="text/javascript" src="../www/js/form_submit.js"></script>
     </head>
     <body>
@@ -49,52 +49,172 @@
         <div data-role="page" id="new_user_page">
             <div data-theme="a" data-role="header">
                 <h3 id="Mainheader">
-                    DogLog
+                    New Logger
                 </h3>
             </div>
-            <form  id='new_user_form'>
-            <div data-role="content">
-                <div data-role="fieldcontain">
-                    <fieldset data-role="controlgroup">
-                        First Name: <input type="text" id="first_name" name="first_name" placeholder="first name" />
-                    </fieldset>
-                </div>
-                <div data-role="fieldcontain">
-                    <fieldset data-role="controlgroup">
-                       Last Name: <input name="last_name" id="last_name"  placeholder="last name" value="" type="text" />
-                    </fieldset>
-                </div>
+            <form>
+                  <div class="input-group">
+                    <div class="input-row">
+                      <label>First Name</label>
+                      <input id="first_name" type="text" placeholder="Your First Name">
+                    </div>
+                    <div class="input-row">
+                      <label>Last Name</label>
+                      <input id="last_name" type="text" placeholder="Your Last Name">
+                    </div>
+                    <div class="input-row">
+                      <label>Company Name</label>
+                      <input id="company_name" type="text" placeholder="Your Company Name">
+                    </div>
+                    <div class="input-row">
+                      <label>Phone Number</label>
+                      <input id="phone" type="tel" placeholder="Your Phone Number">
+                    </div>
+                    <div class="input-row">
+                      <label>Email</label>
+                      <input id="new_user_email" type="email" placeholder="thelogger@doglog.com">
+                    </div>
+                    <div class="input-row">
+                      <label>Password</label>
+                      <input id="new_user_password"type="password" placeholder="Enter new password">
+                    </div>
+                    <div>  <input id="new_user" type="submit" value="Next"> </div>
+                    <div> <a href="#log" data-transition="none"> next Page </a> </div>
+                  </div>
+                </form>
+            </div>
 
-                <div data-role="fieldcontain">
-                    <fieldset data-role="controlgroup">
-                      Company Name:  <input type="text" id="company_name" name="company_name" placeholder="company name" />
-                    </fieldset>
-                </div>
+<div data-role="page" id="new_owner_page">
+            <div data-theme="a" data-role="header">
+                <h3 id="Mainheader">
+                    New Dog Owner
+                </h3>
+            </div>
+            <form>
+                  <div class="input-group">
+                    <div class="input-row">
+                      <label>First Name</label>
+                      <input id="owner_first_name" type="text" placeholder="Your First Name">
+                    </div>
+                    <div class="input-row">
+                      <label>Last Name</label>
+                      <input id="owner_last_name" type="text" placeholder="Your Last Name">
+                    </div>
+                    <div class="input-row">
+                      <label>Phone Number</label>
+                      <input id="owner_phone" type="tel" placeholder="Owner Phone Number">
+                    </div>
+                    <div class="input-row">
+                      <label>Email</label>
+                      <input id="owner_email" type="email" placeholder="thelogger@doglog.com">
+                    </div>
+                    <div class="input-row">
+                      <label>Emergency Contact</label>
+                      <input id="emergency_contact"type="text" placeholder="emergency contact">
+                    </div>
+                    <div class="input-row">
+                      <label>Emergency Contact Phone</label>
+                      <input id="contact_number"type="tel" placeholder="emergency contact phone">
+                    </div>
+                     <div class="input-row">
+                      <label>Vet Name</label>
+                      <input id="vet_name"type="text" placeholder="vet name">
+                    </div>
+                    <div class="input-row">
+                      <label>Vet Phone</label>
+                      <input id="vet_phone"type="tel" placeholder="vet phone">
+                    </div>
+                    <div>  <input id="owner_submit" type="submit" value="Next"> </div>
+                    <div> <a href="#log" data-transition="none"> next Page </a> </div>
+                  </div>
+                </form>
+            </div>
 
-                <div data-role="fieldcontain">
-                    <fieldset data-role="controlgroup">
-                        Phone Number: <input type="tel" id="phone" name="phone" placeholder="phone number"/>
-                    </fieldset>
-                </div>
+
+<div data-role="page" id="new_dog_page">
+            <div data-theme="a" data-role="header">
+                <h3 id="Mainheader">
+                    Add a Dog
+                </h3>
+            </div>
+            <form>
+                  <div class="input-group">
+                    <div class="input-row">
+                      <label>Dog Name</label>
+                      <input id="dog_name" type="text" placeholder="Dog Name">
+                    </div>
+                        <ul class="list">
+                    
+                        <div data-role="fieldcontain" id='sex'>
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                        <label> <strong>Sex </strong></label>
+                        <input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" data-role="none" />
+                        <label for="radio-choice-1">Female</label>
+                        <input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2" data-role="none" />
+                        <label for="radio-choice-2">Male</label>
+                        </fieldset>
+                          </div>
+                      </ul>
+                    <div class="input-row">
+                      <label>Breed</label>
+                      <input id="breed" type="text" placeholder="blue heeler">
+                    </div>
+                    <div class="input-row">
+                      <label>Special Needs</label>
+                      <textarea id ='needs'rows="5" placeholder="leave fresh food out. give meds."></textarea>
+                  </div>
+                     <ul class="list">
+                    
+                        <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                        <label> <strong>Sex </strong></label>
+                        <input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" data-role="none" />
+                        <label for="radio-choice-1">Female</label>
+                        <input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2" data-role="none" />
+                        <label for="radio-choice-2">Male</label>
+                        </fieldset>
+                          </div>
+                      </ul>
+                    <div>  <input id="dog_submit" type="submit" value="Next"> </div>
+                    <div> <a href="#log" data-transition="none"> next Page </a> </div>
+                  </div>
+                </form>
+            </div>
 
 
-                <div data-role="fieldcontain">
-                    <fieldset data-role="controlgroup">
-                      Email:  <input type="text" id="new_user_email" name="new_user_email" placeholder="email@email.com"/>
-                    </fieldset>
-                </div>
+              <div data-role="page" id="new_owner_page">
+            <div data-theme="a" data-role="header">
+                <h3 id="Mainheader">
+                    New Dog Owner
+                </h3>
+            </div>
+             <div data-role="content" > 
+            <ul class="list">
+  <li>
+    <a href="#viewDogs">
+      Dogs
+      <span class="chevron"></span>
+    </a>
+  </li>
+  <li>
+    <a href="#viewOwners">
+      Owners
+      <span class="chevron"></span>
+    </a>
+  </li>
+  <li>
+    <a href="#ViewLogs">
+      Logs
+      <span class="chevron"></span>
+    </a>
+  </li>
+</ul>             
+            </div>
+          </div>
 
-                <div data-role="fieldcontain">
-                    <fieldset data-role="controlgroup">
-                       Password: <input type="password" id="new_user_password" name="new_user_password" placeholder="password"/>
-                    </fieldset>
-                </div>
-                <input id="new_user_submit" type="submit" value="Submit">
-                <a href="#log" data-transition="none"> next Page </a>
-                </div>
-              </form>
-        </div>
-    
+
+
+
 
     <div data-role="page" id="log">
     <div data-role="header">
@@ -115,10 +235,7 @@
     <a id="frenemy">Frenemy</a>
   </li>
 </ul>
-
 </div>
-
-   
     <div data-role="content" >   
            <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUSWiuAj-w8Cz7CV0JwpTmWVI9TnyaK6Y&sensor=false"> </script>
