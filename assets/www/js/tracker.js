@@ -2,6 +2,7 @@
 var tracking_data = []; 
 var event_data=[];/// array containing cor. objects
 var last_values=[];
+var time_val=[];
 var watchId=null;
 var map=null;
 var condition=true;
@@ -12,10 +13,12 @@ function onSuccess(position){
 		
   var myLat = position.coords.latitude;
   var myLong = position.coords.longitude;
+  var time=position.timestamp;
   console.log(myLat,myLong);
   var myLatLng = new google.maps.LatLng(myLat, myLong);
   map.setCenter(myLatLng)
   tracking_data.push(myLatLng);
+  time_val.push(time);
   last_values=[myLat,myLong];
 
    var trackPath = new google.maps.Polyline({
@@ -102,17 +105,52 @@ $("#start_logging").live('click', function(){
 });
   
 $("#end_logging").live('click', function(){
-
+  var start_time_val=time_val[0];
+  var end_time_val=time_val[time_val.length-1];
   navigator.geolocation.clearWatch(watchId);
-  var track_data_str=JSON.stringify(tracking_data);
-  // var event_data_str=JSON.stringify(event_data);
-  tracking_data=[];
-  event_data=[];
   condition=false;
-  console.log(track_data_str);
+  // console.log(track_data_str);
+  var url = "http://10.0.0.13:5000/m_save_map";
+  var obedience_val=5;
+  var dog_mood_val=3;
+  console.log("dogwalkeridval");
+  console.log(dogwalker_id_val);
+  console.log(start_time_val);
+  console.log(end_time_val);
+  // var obedience_val=document.getElementById('obedience').value;
+  // var dog_mood_val=document.getElementById('dog_mood').value;
+  var obj = {dogwalker_id: dogwalker_id_val, obedience_rating: obedience_val, 
+              dog_mood: dog_mood_val, start_time: start_time_val,
+              end_time: end_time_val, walk_location: tracking_data};
+
+
+  // console.log(obj);
+  console.log(obj);
+  data=JSON.stringify(obj);
+  // console.log(data);
+  $.ajax({
+
+    type:'POST',
+    data: {json_vals: data},
+    url: url,
+    success: function(data){
+      console.log(data);
+      // tracking_data=[];
+      // event_data=[];
+      // window.location.href="#add_additional";
+
+    
+    },
+    error: function(data){
+      console.log(data);
+      alert('There was an error. Please try again.');
+    }
+  });
+  console.log('got here')
+  return false;
   // console.log(event_data_str);
   });
-
+  
 function tick( )
 {
   if (condition==true)

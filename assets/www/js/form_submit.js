@@ -1,3 +1,4 @@
+var dogwalker_id_val=null;
 $('#login_submit').live('click', function(){
 	 
 	var url = "http://10.0.0.13:5000/m_authenticate";
@@ -16,7 +17,10 @@ $('#login_submit').live('click', function(){
 		success: function(data){
 			console.log(data);
 			var str_data=JSON.stringify(data);
-			console.log(str_data);
+			dogwalker_stuff=JSON.parse(str_data);
+			dogwalker_id_val=dogwalker_stuff.user_id;
+			console.log(dogwalker_stuff);
+			console.log(dogwalker_id_val);
 			alert('You have successfully logged in to Dog Log. Get loggin');
 		},
 		error: function(data){
@@ -57,7 +61,7 @@ $('#new_user').live('click', function(){
 		},
 		error: function(data){
 			console.log(data);
-			alert('There was an error reg. you. Please try again.');
+			alert('There was an error. Please try again.');
 		}
 	});
 	return false;
@@ -107,7 +111,7 @@ $('#owner_submit').live('click', function(){
 	var sex_val=document.getElementById('sex').value;
 	var breed_val=document.getElementById('breed').value;
 	var needs_val=document.getElementById('needs').value;
-	var data = {dog_name: dog_name_val, sex: sex_val, breed: breed_val, needs: needs_vals
+	var data = {dog_name: dog_name_val, sex: sex_val, breed: breed_val, needs: needs_val
 			};
 	console.log(data);
 
@@ -126,8 +130,15 @@ $('#owner_submit').live('click', function(){
 		},
 		error: function(data){
 			console.log(data);
-			alert('There was an error reg. you. Please try again.');
+			alert('There was an error. Please try again.');
 		}
 	});
 	return false;
 });
+
+
+	 
+	
+
+
+
