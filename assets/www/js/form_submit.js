@@ -1,7 +1,10 @@
 var dogwalker_id_val=null;
+// var base_url="http://afternoon-ocean-9111.herokuapp.com"
+var base_url="http://192.168.1.7:5000"
 $('#login_submit').live('click', function(){
 	 
-	var url = "http://10.0.0.13:5000/m_authenticate";
+
+	var url = base_url + "/m_authenticate";
 	var email_val=document.getElementById('email').value;
 	console.log(email_val);
 	var password_val=document.getElementById('password').value;
@@ -17,15 +20,22 @@ $('#login_submit').live('click', function(){
 		success: function(data){
 			console.log(data);
 			var str_data=JSON.stringify(data);
+			console.log(str_data)
 			dogwalker_stuff=JSON.parse(str_data);
 			dogwalker_id_val=dogwalker_stuff.user_id;
-			console.log(dogwalker_stuff);
-			console.log(dogwalker_id_val);
-			alert('You have successfully logged in to Dog Log. Get loggin');
+			if (dogwalker_id_val=='error')
+				{
+				alert('There was an error with your email or password. Please try logging in again.');
+				}
+			else
+				{
+				console.log(dogwalker_stuff);
+				console.log(dogwalker_id_val);
+				}
 		},
 		error: function(data){
 			console.log(data);
-			alert('There was an error with your email or password. Please try logging in again.');
+			alert('There was an error connecting to the server. Please try logging in again.');
 		}
 	});
 	return false;
@@ -33,7 +43,7 @@ $('#login_submit').live('click', function(){
 
 $('#new_user').live('click', function(){
 	 
-	var url = "http://10.0.0.13:5000/m_save_user";
+	var url = base_url + "/m_save_user";
 	var first_name_val=document.getElementById('first_name').value;
 	var last_name_val=document.getElementById('last_name').value;
 	var company_name_val=document.getElementById('company_name').value;
@@ -69,7 +79,7 @@ $('#new_user').live('click', function(){
 
 $('#dog_submit').live('click', function(){
 	 
-	var url = "http://10.0.0.13:5000/m_save_owner";
+	var url = base_url + "/m_save_owner";
 	var owner_first_name_val=document.getElementById('owner_first_name').value;
 	var owner_last_name_val=document.getElementById('owner_last_name').value;
 	var owner_phone_val=document.getElementById('owner_phone').value;
@@ -106,7 +116,7 @@ $('#dog_submit').live('click', function(){
 
 $('#owner_submit').live('click', function(){
 	 
-	var url = "http://10.0.0.13:5000/m_save_dog";
+	var url = base_url + "/m_save_dog";
 	var dog_name_val=document.getElementById('dog_name').value;
 	var sex_val=document.getElementById('sex').value;
 	var breed_val=document.getElementById('breed').value;

@@ -10,6 +10,32 @@ var pretty=null;
 var seconds = null;
 var ticker = null;
 
+ function tick( )
+{
+  if (condition==true)
+  {   
+    ++seconds;
+    var secs = seconds;
+    var hrs = Math.floor( secs / 3600 );
+    secs %= 3600;
+    var mns = Math.floor( secs / 60 );
+    secs %= 60;
+    pretty = ( hrs < 10 ? "0" : "" ) + hrs
+               + ":" + ( mns < 10 ? "0" : "" ) + mns
+               + ":" + ( secs < 10 ? "0" : "" ) + secs;
+    document.getElementById("ELAPSED").innerHTML = pretty;
+  }
+  else{
+    document.getElementById("ELAPSED").innerHTML = pretty;
+  }
+}
+
+function startTimer(condition)
+{
+    seconds = -1;
+    ticker = setInterval("tick( )", 1000);
+    tick(condition);
+}
 function gps_distance(lat1, lon1, lat2, lon2)
 {
   // http://www.movable-type.co.uk/scripts/latlong.html
@@ -23,7 +49,7 @@ function gps_distance(lat1, lon1, lat2, lon2)
             Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
     var d = R * c;
-    
+    console.log(d);
     return d;
 }
 
@@ -51,17 +77,17 @@ function onSuccess(position){
 };
 
 $("#poop").live('click',function(){
-  console.log('here');
+  
   var poop_image = '../www/css/img/poop.png';
   var poop_location = new google.maps.LatLng(last_values[0], last_values[1]);
-  console.log(last_values[0],last_values[1])
   var poop_marker = new google.maps.Marker({
     position: poop_location,
     map: map,
     icon: poop_image
-  });
 
-  event_data.push(poop_marker);
+  });
+  var event_happened={"poop": [last_values[0],last_values[1]]};
+  event_data.push(event_happened);
  
 });
 
@@ -70,15 +96,18 @@ $("#friend").live('click',function(){
 
   var friend_image = '../www/css/img/dog_happy.gif';
   var friend_location = new google.maps.LatLng(last_values[0], last_values[1]);
+  
   var friend_marker = new google.maps.Marker({
     position: friend_location,
     map: map,
     icon: friend_image
 });
-  event_data.push(friend_marker);
+   var event_happened={"friend": [last_values[0],last_values[1]]};
+  event_data.push(event_happened);
+ 
 });
 $("#frenemy").live('click',function(){
-
+ 
   var frenemy_image = '../www/css/img/dog_sad.gif';
   var frenemy_location = new google.maps.LatLng(last_values[0], last_values[1]);
   var frenemy_marker = new google.maps.Marker({
@@ -86,19 +115,24 @@ $("#frenemy").live('click',function(){
     map: map,
     icon: frenemy_image
 });
-  event_data.push(frenemy_marker);
+  var event_happened={"frenemy": [last_values[0],last_values[1]]};
+  event_data.push(event_happened);
+ 
 });
 
 $("#pee").live('click',function(){
 
   var pee_image = '../www/css/img/pee.gif';
   var pee_location = new google.maps.LatLng(last_values[0], last_values[1]);
+ 
   var pee_marker = new google.maps.Marker({
     position: pee_location,
     map: map,
     icon: pee_image
 });
-  event_data.push(pee_marker);
+  var event_happened={"pee": [last_values[0],last_values[1]]};
+  event_data.push(event_happened);
+ 
 });
 
 function onError(error){
@@ -123,6 +157,7 @@ $("#start_logging").live('click', function(){
 });
   
 $("#end_logging").live('click', function(){
+  var end=Date.now();
   var start_time_val=time_val[0];
   var end_time_val=time_val[time_val.length-1];
 
@@ -135,61 +170,48 @@ $("#end_logging").live('click', function(){
       if(i == (tracking_data.length - 1)){
           break;
       }
-      
-       total_km += gps_distance(tracking_data[i].coords.latitude, 
-                  tracking_data[i].coords.longitude, tracking_data[i+1].coords.latitude, 
-                  tracking_data[i+1].coords.longitude);
+      console.log(tracking_data[i]);
+      console.log(tracking_data[i][0]);
+       total_km += gps_distance(tracking_data[i][0],tracking_data[i][1], tracking_data[i+1][0],tracking_data[i+1][1]);
    }
+
   total_mi = total_km * 0.621371;
+  console.log(total_mi);
   total_mi_rounded = total_mi.toFixed(2);
+  console.log(total_mi_rounded);
   
   // Calculate the total time taken for the elapsed time of walk.
-  temp_start_time = new Date(start_time_val).getTime();
-  temp_end_time = new Date(end_time_val).getTime();
-
-  total_time_ms = temp_end_time - temp_start_time;
-  total_time_s = total_time_ms / 1000;
-  
-  final_time_m = Math.floor(total_time_s / 60);
-  final_time_s = total_time_s - (final_time_m * 60);
-  var total_time = 'final_time_m' + ':' + 'final_time_s';
 
   navigator.geolocation.clearWatch(watchId);
   condition = false;
   // console.log(track_data_str);
-  var url = "http://10.0.0.13:5000/m_save_map";
+  var url = base_url + "/m_save_map";
   var obedience_val=5;
   var dog_mood_val=3;
-  console.log("dogwalkeridval");
-  console.log(dogwalker_id_val);
-  console.log(start_time_val);
-  console.log(end_time_val);
+  var events_try="nothing";
+  var pic="lsjkldf"
+  console.log(event_data);
   // var obedience_val=document.getElementById('obedience').value;
   // var dog_mood_val=document.getElementById('dog_mood').value;
   var obj = {dogwalker_id: dogwalker_id_val, obedience_rating: obedience_val, 
               dog_mood: dog_mood_val, start_time: start_time_val,
-              end_time: end_time_val, walk_location: tracking_data, elapsed_distance: total_mi_rounded, elapsed_time: total_time};
+              end_time: end_time_val, walk_location: tracking_data, elapsed_distance: total_mi_rounded, elapsed_time: pretty, events: event_data, walk_pic_url:pic};
 
-
-  // console.log(obj);
   console.log(obj);
+  // console.log(obj);
   data=JSON.stringify(obj);
-  // console.log(data);
+  console.log(data);
   $.ajax({
 
     type:'POST',
     data: {json_vals: data},
     url: url,
     success: function(data){
-      console.log(data);
-      // tracking_data=[];
-      // event_data=[];
+        //tracking_data=[];
+        //event_data=[];
       // window.location.href="#add_additional";
-
-    
     },
     error: function(data){
-      console.log(data);
       alert('There was an error. Please try again.');
     }
   });
@@ -198,30 +220,5 @@ $("#end_logging").live('click', function(){
   // console.log(event_data_str);
   });
   
-function tick( )
-{
-  if (condition==true)
-  {   
-    ++seconds;
-    var secs = seconds;
-    var hrs = Math.floor( secs / 3600 );
-    secs %= 3600;
-    var mns = Math.floor( secs / 60 );
-    secs %= 60;
-    pretty = ( hrs < 10 ? "0" : "" ) + hrs
-               + ":" + ( mns < 10 ? "0" : "" ) + mns
-               + ":" + ( secs < 10 ? "0" : "" ) + secs;
-    document.getElementById("ELAPSED").innerHTML = pretty;
-  }
-  else{
-    document.getElementById("ELAPSED").innerHTML = pretty;
-}
-}
 
-function startTimer(condition)
-{
-    seconds = -1;
-    ticker = setInterval("tick( )", 1000);
-    tick(condition);
-}
 
