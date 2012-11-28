@@ -9,8 +9,9 @@ var condition=true;
 var pretty=null;
 var seconds = null;
 var ticker = null;
-
- function tick( )
+var myCoords= [];
+ 
+function tick( )
 {
   if (condition==true)
   {   
@@ -60,10 +61,12 @@ function onSuccess(position){
   var time=position.timestamp;
   console.log(myLat,myLong);
   var myLatLng = new google.maps.LatLng(myLat, myLong);
+ 
   map.setCenter(myLatLng)
   tracking_data.push(myLatLng);
   time_val.push(time);
   last_values=[myLat,myLong];
+  myCoords.push(last_values);
 
    var trackPath = new google.maps.Polyline({
       path: tracking_data,
@@ -142,7 +145,7 @@ function onError(error){
 
 $("#start_logging").live('click', function(){
   var start = Date.now();
-	watchId = navigator.geolocation.watchPosition(onSuccess, onError,{frequency: 15000, enableHighAccuracy: true});
+	watchId = navigator.geolocation.watchPosition(onSuccess, onError,{frequency: 30000, enableHighAccuracy: true});
   var default_center = new google.maps.LatLng(37.37,121.92);
   pretty=null;
   condition=true;
@@ -165,16 +168,18 @@ $("#end_logging").live('click', function(){
   //Calculate the total distance travelled
   var total_km = 0;
 
-  for(i = 0; i < tracking_data.length; i++){
+  for(i = 0; i < myCoords.length; i++){
       
-      if(i == (tracking_data.length - 1)){
+      if(i == (myCoords.length - 1)){
           break;
-      }
-      console.log(tracking_data[i]);
-      console.log(tracking_data[i][0]);
-       total_km += gps_distance(tracking_data[i][0],tracking_data[i][1], tracking_data[i+1][0],tracking_data[i+1][1]);
+        }
+      console.log(myCoords[i]);
+      console.log(myCoords[i][0]);
+      total_km += gps_distance(myCoords[i][0],myCoords[i][1], myCoords[i+1][0], myCoords[i+1][1]);
    }
 
+  console.log(myCoords);
+  console.log(total_km);
   total_mi = total_km * 0.621371;
   console.log(total_mi);
   total_mi_rounded = total_mi.toFixed(2);
@@ -188,7 +193,6 @@ $("#end_logging").live('click', function(){
   var url = base_url + "/m_save_map";
   var obedience_val=5;
   var dog_mood_val=3;
-  var events_try="nothing";
   var pic="lsjkldf"
   console.log(event_data);
   // var obedience_val=document.getElementById('obedience').value;
@@ -207,6 +211,11 @@ $("#end_logging").live('click', function(){
     data: {json_vals: data},
     url: url,
     success: function(data){
+        tracking_data=[];
+        event_data=[];
+        myCoords=[];
+        last_values=[];
+        time_val=[];
         //tracking_data=[];
         //event_data=[];
       // window.location.href="#add_additional";
@@ -218,6 +227,8 @@ $("#end_logging").live('click', function(){
   console.log('got here')
   return false;
   // console.log(event_data_str);
+
+
   });
   
 

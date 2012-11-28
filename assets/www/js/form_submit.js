@@ -1,6 +1,6 @@
 var dogwalker_id_val=null;
-// var base_url="http://afternoon-ocean-9111.herokuapp.com"
-var base_url="http://192.168.1.7:5000"
+var base_url="http://afternoon-ocean-9111.herokuapp.com"
+// var base_url="http://192.168.1.7:5000"
 $('#login_submit').live('click', function(){
 	 
 
