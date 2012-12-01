@@ -170,7 +170,20 @@ a {
   padding: 5px;
   box-sizing: border-box;
 }
+.on {
+    background-color: green;
+    color: white;    
+}
 
+.off {
+    background-color:brown;
+    color: white;    
+}​
+
+#logpic{
+  width:100%;
+  height:40px;
+}
 /* Modifier class to dock any bar below .bar-title */
 .bar-header-secondary {
   top: 45px;

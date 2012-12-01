@@ -12,21 +12,22 @@
         <script type="text/javascript" src="../www/js/ratchet.js"></script>
       <script type="text/javascript" src="../www/js/tracker.js"></script>
         <script type="text/javascript" src="../www/js/form_submit.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
     </head>
     <body>
         <!-- Home -->
         <div data-role="page" id="home">
             <div data-theme="a" data-role="header">
-                <h3 id="Mainheader">
+                <h2 id="Mainheader">
                     DogLog
-                </h3>
+                </h2>
             </div>
             <form  id='login_form'>
             <div data-role="content" login='1'>
                 <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup">
                         <label for="email">
-                            Sign in
+                            <h2>Sign In</h2>
                         </label>
                         <input type="email" id="email" name="email" placeholder="Email" value="" type="email" />
                     </fieldset>
@@ -38,15 +39,12 @@
                         <input name="password" id="password"  placeholder="Password" value="" type="password" />
                     </fieldset>
                 </div>
-                <input id="login_submit" type="submit" value="Get Loggin'">
-                <a href='#new_user_page' class="button">New DogWalker?</a>
-                <br>
-                <br>
-                <a href="#log" data-transition="none"> next Page </a>
+                <input id="login_submit" data-role="button" type="submit" data-theme="e" value="Get Loggin'">
+                <img src="../www/css/img/branchsmall.png" id="logpic">
+                <a href='#new_user_page' data-inline="true" data-role="button" data-theme="a" >Register New Logger</a>
                 </div>
               </form>
         </div>
-
         <div data-role="page" id="new_user_page">
             <div data-theme="a" data-role="header">
                 <h3 id="Mainheader">
@@ -240,8 +238,10 @@
     <div data-role="content" >   
            <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUSWiuAj-w8Cz7CV0JwpTmWVI9TnyaK6Y&sensor=false"> </script>
-        <button data-role="button" id="start_logging">Start Loggin'</button>
+        <button data-role="button" type="button" data-theme="e" id="start_logging">Start Loggin'</button> 
         <button data-role="button" id="end_logging">Stop Loggin'</button>  
+        <label for="xAxisToggleBtn"></label>
+      <input type="checkbox" id="xAxisToggleBtn"/>
       
       
     <div id="map_canvas" style="position:absolute;bottom:30px;left:30px;width:75%;height:300px;">

@@ -31,6 +31,8 @@ $('#login_submit').live('click', function(){
 				{
 				console.log(dogwalker_stuff);
 				console.log(dogwalker_id_val);
+				window.location.href="#log";
+
 				}
 		},
 		error: function(data){
