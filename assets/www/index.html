@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title> Dog log</title>
         <script type="text/javascript" src="../www/js/jquery-1.8.2.js"></script>
         <script type="text/javascript" src="../www/js/jquery.mobile-1.1.0.min.js"></script>
-        <link rel="stylesheet" href="../www/css/ratchet.css" />
-        <link rel="stylesheet" href="../www/css/jquery.mobile-1.1.0.min.css" />
+        <link rel="stylesheet" href="../www/css/jquery.mobile-1.1.0.css"/>
         <script type="text/javascript" src="../www/cordova-2.2.0.js"></script>
-        <script type="text/javascript" src="../www/js/ratchet.js"></script>
-      <script type="text/javascript" src="../www/js/tracker.js"></script>
+        <script type="text/javascript" src="../www/js/tracker.js"></script>
         <script type="text/javascript" src="../www/js/form_submit.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="../www/js/jquery.rating.js"></script>
+        <link rel="stylesheet" href="../www/css/jquery.rating.css"/>
+
+
+
     </head>
     <body>
         <!-- Home -->
@@ -220,35 +222,58 @@
     
         <h1>Log Your Dog</h1>
     </div>
-    <div data-role="sub-header"><ul class="segmented-controller">
-  <li>
-    <a id ='poop'>Poop</a>
-  </li>
-  <li>
-    <a id="pee">Pee</a>
-  </li>
-  <li>
-    <a id="friend">Friend</a>
-  </li>
-   <li>
-    <a id="frenemy">Frenemy</a>
-  </li>
-</ul>
-</div>
+    
+ 
     <div data-role="content" >   
            <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUSWiuAj-w8Cz7CV0JwpTmWVI9TnyaK6Y&sensor=false"> </script>
-        <button data-role="button" type="button" data-theme="e" id="start_logging">Start Loggin'</button> 
-        <button data-role="button" id="end_logging">Stop Loggin'</button>  
-        <label for="xAxisToggleBtn"></label>
-      <input type="checkbox" id="xAxisToggleBtn"/>
+        <button data-role="button" type="button" data-theme="e" id="start_logging">Start Loggin'</button>
+
+        <a data-role="button" href="#summary"> Stop Loggin'</a>     
       
-      
-    <div id="map_canvas" style="position:absolute;bottom:30px;left:30px;width:75%;height:300px;">
+    <div id="map_canvas" style="margin-left:auto;margin-right:auto;width:75%;height:300px;">
     </div>
-    <div style="position:absolute;bottom:0px;left:0px;width:100%;height:30px"><span id="ELAPSED"></span> </div>
+
+<div class="ui-bar ui-bar-c">
+  <span id="ELAPSED">
+    </span> </div>
+    <div data-role="footer">    
+    <div data-role="navbar">
+    <ul>
+      <li><a id ='poop'>Poop</a></li>
+      <li><a id="pee">Pee</a></li>
+      <li><a id="friend">Friend</a></li>
+      <li><a id="frenemy">Frenemy</a></li>
+      </ul>
+    </div><!-- /navbar -->
+    </div><!-- /footer -->
     </div>
     </div>
 
+    <div data-role="page" id="summary">
+    <div data-theme="a" data-role="header">
+    <h3 id="Mainheader"> Send Log Summary</h3>
+    </div>
+    <div data-role="content" > 
+    <div id="mood">
+<p>Set a star rating for your dog's mood:</p>   
+<input name="star1" type="radio" class="star"/>
+<input name="star1" type="radio" class="star"/>
+<input name="star1" type="radio" class="star"/>
+<input name="star1" type="radio" class="star"/>
+<input name="star1" type="radio" class="star"/> 
+</div>
+ <div id="obedience">
+  <p>Set a star rating for your dog's obedience:</p>   
+  <input name="obedience" id="obedience" type="radio" class="star"/>
+  <input name="obedience" type="radio" class="star"/>
+  <input name="obedience" type="radio" class="star"/>
+  <input name="obedience" type="radio" class="star"/>
+  <input name="obedience" type="radio" class="star"/>
+</div>
+
+               
+  </div>
+  </div>
     </body>
 </html>

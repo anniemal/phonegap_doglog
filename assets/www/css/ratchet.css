@@ -170,15 +170,6 @@ a {
   padding: 5px;
   box-sizing: border-box;
 }
-.on {
-    background-color: green;
-    color: white;    
-}
-
-.off {
-    background-color:brown;
-    color: white;    
-}​
 
 #logpic{
   width:100%;
