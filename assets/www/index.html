@@ -43,7 +43,8 @@
                 </div>
                 <input id="login_submit" data-role="button" type="submit" data-theme="e" value="Get Loggin'">
                 <img src="../www/css/img/branchsmall.png" id="logpic">
-                <a href='#new_user_page' data-inline="true" data-role="button" data-theme="a" >Register New Logger</a>
+                <div id="reg_button">
+                <a href='#new_user_page' data-inline="true" data-role="button" data-theme="a" >Register New Logger</a></div>
                 </div>
               </form>
         </div>
@@ -228,8 +229,7 @@
            <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUSWiuAj-w8Cz7CV0JwpTmWVI9TnyaK6Y&sensor=false"> </script>
         <button data-role="button" type="button" data-theme="e" id="start_logging">Start Loggin'</button>
-
-        <a data-role="button" href="#summary"> Stop Loggin'</a>     
+        <button data-role="button" type="button" data-theme="b" id="end_logging">Stop Loggin'</button>
       
     <div id="map_canvas" style="margin-left:auto;margin-right:auto;width:75%;height:300px;">
     </div>
@@ -248,31 +248,7 @@
     </div><!-- /navbar -->
     </div><!-- /footer -->
     </div>
-    </div>
-
-    <div data-role="page" id="summary">
-    <div data-theme="a" data-role="header">
-    <h3 id="Mainheader"> Send Log Summary</h3>
-    </div>
-    <div data-role="content" > 
-    <div id="mood">
-<p>Set a star rating for your dog's mood:</p>   
-<input name="star1" type="radio" class="star"/>
-<input name="star1" type="radio" class="star"/>
-<input name="star1" type="radio" class="star"/>
-<input name="star1" type="radio" class="star"/>
-<input name="star1" type="radio" class="star"/> 
-</div>
- <div id="obedience">
-  <p>Set a star rating for your dog's obedience:</p>   
-  <input name="obedience" id="obedience" type="radio" class="star"/>
-  <input name="obedience" type="radio" class="star"/>
-  <input name="obedience" type="radio" class="star"/>
-  <input name="obedience" type="radio" class="star"/>
-  <input name="obedience" type="radio" class="star"/>
-</div>
-
-               
+    </div>            
   </div>
   </div>
     </body>

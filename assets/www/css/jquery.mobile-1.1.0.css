@@ -10,6 +10,10 @@
 /* Swatches */
 /* A
 -----------------------------------------------------------------------------------------------------------*/
+#reg_button{
+	margin-right: auto;
+	margin-left: auto;
+}
 .ui-bar-a {
 	border: 1px solid 		#333 /*{a-bar-border}*/;
 	background: 			#111111 /*{a-bar-background-color}*/;

@@ -317,7 +317,7 @@ $("#end_logging").live('click', function(){
         myCoords=[];
         last_values=[];
         time_val=[];
-        alert('sms message successfully sent');
+        alert("Thanks for loggin'! Your log has been sent via text to the dog owner.");
         window.location.href="#over_view_page";
 
     },
