@@ -175,6 +175,12 @@ a {
   width:100%;
   height:40px;
 }
+
+#footerimg{
+  width:100%;
+ 
+}
+
 /* Modifier class to dock any bar below .bar-title */
 .bar-header-secondary {
   top: 45px;

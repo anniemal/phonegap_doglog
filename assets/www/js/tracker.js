@@ -264,7 +264,7 @@ $("#end_logging").live('click', function(){
   var end=Date.now();
   var start_time_val=time_val[0];
   var end_time_val=time_val[time_val.length-1];
-
+  console.log(start_time_val);
 
   //Calculate the total distance travelled
   var total_km = 0;
@@ -296,6 +296,8 @@ $("#end_logging").live('click', function(){
   var dog_mood_val=3;
   var pic="lsjkldf"
   console.log(event_data);
+  start_time_val=String(start_time_val);
+  end_time_val=String(end_time_val);
   // var obedience_val=document.getElementById('obedience').value;
   // var dog_mood_val=document.getElementById('dog_mood').value;
   var obj = {dogwalker_id: dogwalker_id_val, obedience_rating: obedience_val, 

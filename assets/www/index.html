@@ -13,23 +13,21 @@
         <script type="text/javascript" src="../www/js/jquery.rating.js"></script>
         <link rel="stylesheet" href="../www/css/jquery.rating.css"/>
 
-
-
     </head>
     <body>
         <!-- Home -->
         <div data-role="page" id="home">
-            <div data-theme="a" data-role="header">
-                <h2 id="Mainheader">
+            <div data-theme="a" data-role="header" >
+                <h1 id="Mainheader">
                     DogLog
-                </h2>
+                </h1>
             </div>
             <form  id='login_form'>
             <div data-role="content" login='1'>
                 <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup">
                         <label for="email">
-                            <h2>Sign In</h2>
+                            <h3>Sign In:</h3>
                         </label>
                         <input type="email" id="email" name="email" placeholder="Email" value="" type="email" />
                     </fieldset>
@@ -38,16 +36,22 @@
                     <fieldset data-role="controlgroup">
                         <label for="password">
                         </label>
-                        <input name="password" id="password"  placeholder="Password" value="" type="password" />
+                        <input name="password" id="password" placeholder="Password" value="" type="password" />
                     </fieldset>
                 </div>
                 <input id="login_submit" data-role="button" type="submit" data-theme="e" value="Get Loggin'">
                 <img src="../www/css/img/branchsmall.png" id="logpic">
                 <div id="reg_button">
-                <a href='#new_user_page' data-inline="true" data-role="button" data-theme="a" >Register New Logger</a></div>
+                <a href='#new_user_page' style="position:fixed;margin-left:auto;margin-right:auto;" data-inline="true" data-role="button" data-theme="a" >
+                Register New Logger</a></div>
+
                 </div>
               </form>
+                <footer>
+                <img src="../www/css/img/footerGrass2.png" id="footerimg" style="position:fixed;">
+                <footer>    
         </div>
+
         <div data-role="page" id="new_user_page">
             <div data-theme="a" data-role="header">
                 <h3 id="Mainheader">
@@ -81,7 +85,6 @@
                       <input id="new_user_password"type="password" placeholder="Enter new password">
                     </div>
                     <div>  <input id="new_user" type="submit" value="Next"> </div>
-                    <div> <a href="#log" data-transition="none"> next Page </a> </div>
                   </div>
                 </form>
             </div>
@@ -116,7 +119,7 @@
                     </div>
                     <div class="input-row">
                       <label>Emergency Contact Phone</label>
-                      <input id="contact_number"type="tel" placeholder="emergency contact phone">
+                      <input id="contact_phone"type="tel" placeholder="emergency contact phone">
                     </div>
                      <div class="input-row">
                       <label>Vet Name</label>
@@ -127,67 +130,54 @@
                       <input id="vet_phone"type="tel" placeholder="vet phone">
                     </div>
                     <div>  <input id="owner_submit" type="submit" value="Next"> </div>
-                    <div> <a href="#log" data-transition="none"> next Page </a> </div>
                   </div>
                 </form>
-            </div>
+    </div>
 
 
 <div data-role="page" id="new_dog_page">
             <div data-theme="a" data-role="header">
                 <h3 id="Mainheader">
-                    Add a Dog
+                    New Dog
                 </h3>
             </div>
             <form>
                   <div class="input-group">
+
                     <div class="input-row">
                       <label>Dog Name</label>
-                      <input id="dog_name" type="text" placeholder="Dog Name">
+                      <input id="dog_name" type="text" placeholder="Dog Name"/>
                     </div>
-                        <ul class="list">
-                    
-                        <div data-role="fieldcontain" id='sex'>
-                        <fieldset data-role="controlgroup" data-type="horizontal">
-                        <label> <strong>Sex </strong></label>
-                        <input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" data-role="none" />
-                        <label for="radio-choice-1">Female</label>
-                        <input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2" data-role="none" />
-                        <label for="radio-choice-2">Male</label>
-                        </fieldset>
-                          </div>
-                      </ul>
+
                     <div class="input-row">
                       <label>Breed</label>
                       <input id="breed" type="text" placeholder="blue heeler">
                     </div>
+
                     <div class="input-row">
                       <label>Special Needs</label>
                       <textarea id ='needs'rows="5" placeholder="leave fresh food out. give meds."></textarea>
                   </div>
-                     <ul class="list">
-                    
                         <div data-role="fieldcontain">
                         <fieldset data-role="controlgroup" data-type="horizontal">
-                        <label> <strong>Sex </strong></label>
-                        <input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" data-role="none" />
-                        <label for="radio-choice-1">Female</label>
-                        <input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2" data-role="none" />
-                        <label for="radio-choice-2">Male</label>
+                        <label> Sex: </label>
+                        <br>
+                        <input type="radio" name="sex" id="sex" value="Female" checked="checked" data-role="none" />
+                        <label for="female_choice">Female</label>
+                        <input type="radio" name="sex" id="sex" value="Male" data-role="none"/>
+                        <label for="male_choice">Male</label>
                         </fieldset>
-                          </div>
-                      </ul>
-                    <div>  <input id="dog_submit" type="submit" value="Next"> </div>
-                    <div> <a href="#log" data-transition="none"> next Page </a> </div>
+                        </div>
+                    <input id="dog_submit" type="submit" value="submit" /> 
                   </div>
                 </form>
             </div>
 
 
-              <div data-role="page" id="new_owner_page">
+              <div data-role="page" id="viewpage">
             <div data-theme="a" data-role="header">
                 <h3 id="Mainheader">
-                    New Dog Owner
+                    View Page
                 </h3>
             </div>
              <div data-role="content" > 
@@ -234,8 +224,8 @@
     <div id="map_canvas" style="margin-left:auto;margin-right:auto;width:75%;height:300px;">
     </div>
 
-<div class="ui-bar ui-bar-c">
-  <span id="ELAPSED">
+<div class="ui-bar ui-bar-e">
+  <span id="ELAPSED" style="font-weight:bold;">
     </span> </div>
     <div data-role="footer">    
     <div data-role="navbar">
@@ -248,8 +238,8 @@
     </div><!-- /navbar -->
     </div><!-- /footer -->
     </div>
-    </div>            
-  </div>
-  </div>
+    </div> 
+
+
     </body>
 </html>
