@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+
 <html>
     <head>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <title> Dog log</title>
+        <title> dogLog</title>
         <script type="text/javascript" src="../www/js/jquery-1.8.2.js"></script>
         <script type="text/javascript" src="../www/js/jquery.mobile-1.1.0.min.js"></script>
         <link rel="stylesheet" href="../www/css/jquery.mobile-1.1.0.css"/>
@@ -12,234 +13,222 @@
         <script type="text/javascript" src="../www/js/form_submit.js"></script>
         <script type="text/javascript" src="../www/js/jquery.rating.js"></script>
         <link rel="stylesheet" href="../www/css/jquery.rating.css"/>
-
     </head>
     <body>
-        <!-- Home -->
-        <div data-role="page" id="home">
-            <div data-theme="a" data-role="header" >
-                <h1 id="Mainheader">
-                    DogLog
-                </h1>
-            </div>
-            <form  id='login_form'>
-            <div data-role="content" login='1'>
-                <div data-role="fieldcontain">
-                    <fieldset data-role="controlgroup">
-                        <label for="email">
-                            <h3>Sign In:</h3>
-                        </label>
-                        <input type="email" id="email" name="email" placeholder="Email" value="" type="email" />
-                    </fieldset>
-                </div>
-                <div data-role="fieldcontain">
-                    <fieldset data-role="controlgroup">
-                        <label for="password">
-                        </label>
-                        <input name="password" id="password" placeholder="Password" value="" type="password" />
-                    </fieldset>
-                </div>
-                <input id="login_submit" data-role="button" type="submit" data-theme="e" value="Get Loggin'">
-                <img src="../www/css/img/branchsmall.png" id="logpic">
-                <div id="reg_button">
-                <a href='#new_user_page' style="position:fixed;margin-left:auto;margin-right:auto;" data-inline="true" data-role="button" data-theme="a" >
-                Register New Logger</a></div>
 
-                </div>
-              </form>
-                <footer>
-                <img src="../www/css/img/footerGrass2.png" id="footerimg" style="position:fixed;">
-                <footer>    
+<!-- Start of Home page -->
+<div data-role="page" id="home">
+
+  <div data-theme="a" data-role="header" >
+    <h1 id="Mainheader"> dogLog </h1>
+  </div>
+
+    <form id='login_form'>
+      <div data-role="content" login='1'>
+
+        <div data-role="fieldcontain">
+          <fieldset data-role="controlgroup">
+            <label for="email">
+              <h3>Sign In:</h3>
+            </label>
+            <input type="email" id="email" name="email" placeholder="Email" value="" type="email" />
+          </fieldset>
         </div>
 
-        <div data-role="page" id="new_user_page">
-            <div data-theme="a" data-role="header">
-                <h3 id="Mainheader">
-                    New Logger
-                </h3>
-            </div>
-            <form>
-                  <div class="input-group">
-                    <div class="input-row">
-                      <label>First Name</label>
-                      <input id="first_name" type="text" placeholder="Your First Name">
-                    </div>
-                    <div class="input-row">
-                      <label>Last Name</label>
-                      <input id="last_name" type="text" placeholder="Your Last Name">
-                    </div>
-                    <div class="input-row">
-                      <label>Company Name</label>
-                      <input id="company_name" type="text" placeholder="Your Company Name">
-                    </div>
-                    <div class="input-row">
-                      <label>Phone Number</label>
-                      <input id="phone" type="tel" placeholder="Your Phone Number">
-                    </div>
-                    <div class="input-row">
-                      <label>Email</label>
-                      <input id="new_user_email" type="email" placeholder="thelogger@doglog.com">
-                    </div>
-                    <div class="input-row">
-                      <label>Password</label>
-                      <input id="new_user_password"type="password" placeholder="Enter new password">
-                    </div>
-                    <div>  <input id="new_user" type="submit" value="Next"> </div>
-                  </div>
-                </form>
-            </div>
+      <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup">
+          <label for="password"></label>
+          <input name="password" id="password" placeholder="Password" value="" type="password" />
+        </fieldset>
+      </div>
 
-<div data-role="page" id="new_owner_page">
-            <div data-theme="a" data-role="header">
-                <h3 id="Mainheader">
-                    New Dog Owner
-                </h3>
-            </div>
-            <form>
-                  <div class="input-group">
-                    <div class="input-row">
-                      <label>First Name</label>
-                      <input id="owner_first_name" type="text" placeholder="Your First Name">
-                    </div>
-                    <div class="input-row">
-                      <label>Last Name</label>
-                      <input id="owner_last_name" type="text" placeholder="Your Last Name">
-                    </div>
-                    <div class="input-row">
-                      <label>Phone Number</label>
-                      <input id="owner_phone" type="tel" placeholder="Owner Phone Number">
-                    </div>
-                    <div class="input-row">
-                      <label>Email</label>
-                      <input id="owner_email" type="email" placeholder="thelogger@doglog.com">
-                    </div>
-                    <div class="input-row">
-                      <label>Emergency Contact</label>
-                      <input id="emergency_contact"type="text" placeholder="emergency contact">
-                    </div>
-                    <div class="input-row">
-                      <label>Emergency Contact Phone</label>
-                      <input id="contact_phone"type="tel" placeholder="emergency contact phone">
-                    </div>
-                     <div class="input-row">
-                      <label>Vet Name</label>
-                      <input id="vet_name"type="text" placeholder="vet name">
-                    </div>
-                    <div class="input-row">
-                      <label>Vet Phone</label>
-                      <input id="vet_phone"type="tel" placeholder="vet phone">
-                    </div>
-                    <div>  <input id="owner_submit" type="submit" value="Next"> </div>
-                  </div>
-                </form>
-    </div>
+        <input id="login_submit" data-role="button" type="submit" data-theme="e" value="Get Loggin'">
+        <img src="../www/css/img/branchsmall.png" id="logpic">
 
+        <div id="reg_button">
+          <a href='#new_user_page' style="position:fixed;margin-left:auto;margin-right:auto;" data-inline="true" data-role="button" data-theme="a" > Register New Logger</a>
+        </div>
 
-<div data-role="page" id="new_dog_page">
-            <div data-theme="a" data-role="header">
-                <h3 id="Mainheader">
-                    New Dog
-                </h3>
-            </div>
-            <form>
-                  <div class="input-group">
+      </div>
+    </form>
 
-                    <div class="input-row">
-                      <label>Dog Name</label>
-                      <input id="dog_name" type="text" placeholder="Dog Name"/>
-                    </div>
+  <footer>
+    <img src="../www/css/img/footerGrass2.png" id="footerimg" style="position:fixed;">
+  </footer> 
 
-                    <div class="input-row">
-                      <label>Breed</label>
-                      <input id="breed" type="text" placeholder="blue heeler">
-                    </div>
-
-                    <div class="input-row">
-                      <label>Special Needs</label>
-                      <textarea id ='needs'rows="5" placeholder="leave fresh food out. give meds."></textarea>
-                  </div>
-                        <div data-role="fieldcontain">
-                        <fieldset data-role="controlgroup" data-type="horizontal">
-                        <label> Sex: </label>
-                        <br>
-                        <input type="radio" name="sex" id="sex" value="Female" checked="checked" data-role="none" />
-                        <label for="female_choice">Female</label>
-                        <input type="radio" name="sex" id="sex" value="Male" data-role="none"/>
-                        <label for="male_choice">Male</label>
-                        </fieldset>
-                        </div>
-                    <input id="dog_submit" type="submit" value="submit" /> 
-                  </div>
-                </form>
-            </div>
-
-
-              <div data-role="page" id="viewpage">
-            <div data-theme="a" data-role="header">
-                <h3 id="Mainheader">
-                    View Page
-                </h3>
-            </div>
-             <div data-role="content" > 
-            <ul class="list">
-  <li>
-    <a href="#viewDogs">
-      Dogs
-      <span class="chevron"></span>
-    </a>
-  </li>
-  <li>
-    <a href="#viewOwners">
-      Owners
-      <span class="chevron"></span>
-    </a>
-  </li>
-  <li>
-    <a href="#ViewLogs">
-      Logs
-      <span class="chevron"></span>
-    </a>
-  </li>
-</ul>             
-            </div>
-          </div>
-
-
-
-
-
-    <div data-role="page" id="log">
-    <div data-role="header">
-    
-        <h1>Log Your Dog</h1>
-    </div>
-    
- 
-    <div data-role="content" >   
-           <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUSWiuAj-w8Cz7CV0JwpTmWVI9TnyaK6Y&sensor=false"> </script>
-        <button data-role="button" type="button" data-theme="e" id="start_logging">Start Loggin'</button>
-        <button data-role="button" type="button" data-theme="b" id="end_logging">Stop Loggin'</button>
+</div>
+<!-- End of Home page -->
       
-    <div id="map_canvas" style="margin-left:auto;margin-right:auto;width:75%;height:300px;">
+<!-- Start of new logger page -->
+<div data-role="page" id="new_user_page">
+
+  <div data-theme="a" data-role="header">
+    <h3 id="Mainheader">New Logger </h3>
+  </div>
+
+  <form>
+    <div class="input-group">
+
+      <div class="input-row">
+        <label>First Name</label>
+        <input id="first_name" type="text" placeholder="Your First Name">
+      </div>
+
+      <div class="input-row">
+        <label>Last Name</label>
+        <input id="last_name" type="text" placeholder="Your Last Name">
+       </div>
+
+      <div class="input-row">
+       <label>Company Name</label>
+       <input id="company_name" type="text" placeholder="Your Company Name">
+      </div>
+
+      <div class="input-row">
+       <label>Phone Number</label>
+       <input id="phone" type="tel" placeholder="Your Phone Number">
+      </div>
+
+     <div class="input-row">
+        <label>Email</label>
+        <input id="new_user_email" type="email" placeholder="thelogger@doglog.com">
+      </div>
+
+      <div class="input-row">
+       <label>Password</label>
+        <input id="new_user_password"type="password" placeholder="Enter new password">
+      </div>
+
+      <div>  <input id="new_user" type="submit" value="Next"> </div>
+
+    </div>
+  </form>
+</div>
+<!-- End of new logger page -->
+
+<!-- Start of new Dog Owner page -->
+<div data-role="page" id="new_owner_page">
+  <div data-theme="a" data-role="header">
+    <h3 id="Mainheader">
+      New Dog Owner
+    </h3>
+  </div>
+  <form>
+    <div class="input-group">
+      <div class="input-row">
+        <label>First Name</label>
+        <input id="owner_first_name" type="text" placeholder="Your First Name">
+      </div>
+
+      <div class="input-row">
+        <label>Last Name</label>
+        <input id="owner_last_name" type="text" placeholder="Your Last Name">
+      </div>
+
+      <div class="input-row">
+        <label>Phone Number</label>
+        <input id="owner_phone" type="tel" placeholder="Owner Phone Number">
+      </div>
+
+      <div class="input-row">
+        <label>Email</label>
+        <input id="owner_email" type="email" placeholder="thelogger@doglog.com">
+      </div>
+
+      <div class="input-row">
+        <label>Emergency Contact</label>
+        <input id="emergency_contact"type="text" placeholder="emergency contact">
+      </div>
+
+      <div class="input-row">
+        <label>Emergency Contact Phone</label>
+        <input id="contact_phone"type="tel" placeholder="emergency contact phone">
+      </div>
+
+      <div class="input-row">
+        <label>Vet Name</label>
+        <input id="vet_name"type="text" placeholder="vet name">
+      </div>
+
+      <div class="input-row">
+        <label>Vet Phone</label>
+        <input id="vet_phone"type="tel" placeholder="vet phone">
+      </div>
+
+      <div>  
+        <input id="owner_submit" type="submit" value="Next"> 
+      </div>
+    </div>
+  </form> 
+</div>
+<!-- END of new DogOwner page -->
+
+<!-- START of new Dog page -->
+<div data-role="page" id="new_dog_page">
+  <div data-theme="a" data-role="header">
+    <h3 id="Mainheader">New Dog</h3>
+  </div>
+  <form>
+    <div class="input-group">
+      <div class="input-row">
+        <label>Dog Name</label>
+        <input id="dog_name" type="text" placeholder="Dog Name"/>
+      </div>
+      <div class="input-row">
+        <label>Breed</label>
+        <input id="breed" type="text" placeholder="blue heeler">
+      </div>
+      <div class="input-row">
+        <label>Special Needs</label>
+        <textarea id ='needs'rows="5" placeholder="leave fresh food out. give meds."></textarea>
+      </div>
+      <div data-role="fieldcontain">
+        <fieldset data-role="controlgroup" data-type="horizontal">
+          <label> Sex: </label>
+          <br>
+          <input type="radio" name="sex" id="sex" value="Female" checked="checked" data-role="none" />
+          <label for="female_choice">Female</label>
+          <input type="radio" name="sex" id="sex" value="Male" data-role="none"/>
+          <label for="male_choice">Male</label>
+        </fieldset>
+      </div>
+      <input id="dog_submit" type="submit" value="submit" /> 
+    </div>
+  </form>
+</div>
+<!-- END of new Dog page -->
+
+<!-- START of new Log page -->
+<div data-role="page" id="log">
+  <div data-role="header">
+    <h1>Log Your Dog</h1>
+  </div>
+
+  <div data-role="content" >              
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUSWiuAj-w8Cz7CV0JwpTmWVI9TnyaK6Y&sensor=false"> 
+    </script>
+    <button data-role="button" type="button" data-theme="e" id="start_logging">Start Loggin'</button>
+    <button data-role="button" type="button" data-theme="b" id="end_logging">Stop Loggin'</button> 
+    <div id="map_canvas" style="margin-left:auto;margin-right:auto;width:75%;height:300px;"></div>
+    <div class="ui-bar ui-bar-e">
+      <span id="ELAPSED" style="font-weight:bold;"></span> 
     </div>
 
-<div class="ui-bar ui-bar-e">
-  <span id="ELAPSED" style="font-weight:bold;">
-    </span> </div>
     <div data-role="footer">    
-    <div data-role="navbar">
-    <ul>
-      <li><a id ='poop'>Poop</a></li>
-      <li><a id="pee">Pee</a></li>
-      <li><a id="friend">Friend</a></li>
-      <li><a id="frenemy">Frenemy</a></li>
-      </ul>
-    </div><!-- /navbar -->
-    </div><!-- /footer -->
+      <div data-role="navbar">
+        <ul>
+          <li><a id ='poop'>Poop</a></li>
+          <li><a id="pee">Pee</a></li>
+          <li><a id="friend">Friend</a></li>
+          <li><a id="frenemy">Frenemy</a></li>
+        </ul>
+      </div>
+
     </div>
-    </div> 
+  </div>
+</div> 
+<!-- END of new Log page -->
 
 
-    </body>
+</body>
 </html>

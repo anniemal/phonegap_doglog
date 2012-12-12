@@ -109,6 +109,7 @@ $("#friend").live('click',function(){
   event_data.push(event_happened);
  
 });
+
 $("#frenemy").live('click',function(){
  
   var frenemy_image = '../www/css/img/dog_sad.gif';
@@ -142,108 +143,6 @@ function onError(error){
 
 	alert ('error')
 }
-
-// function setInputButtonText(txt){
-//           $("#myButton").prev('a').find('span.ui-btn-text').text(txt);
-// }
-
-//  $('#myButton').toggle(function(){
-//         setInputButtonText("New Text For Input Button");
-//  }, function(){
-//          setInputButtonText("My Value");
-//  });
-
-
-// function setInputButtonText(txt){
-//           $("#start_logging").prev('a').find('span.ui-btn-text').text(txt);
-// }
-
-
-//         setInputButtonText("Start Loggin'");
-//         var start = Date.now();
-//         watchId = navigator.geolocation.watchPosition(onSuccess, onError,{frequency: 30000, enableHighAccuracy: true});
-//         var default_center = new google.maps.LatLng(37.37,121.92);
-//         pretty=null;
-//         condition=true;
-//         var mapOptions = {
-//         zoom: 15,
-//         center: default_center,
-//         mapTypeId: google.maps.MapTypeId.ROADMAP
-//       };
-//       startTimer(true);
-//       map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-//  }, function(){
-
-
-//          setInputButtonText("Stop Loggin'");
-//          var end=Date.now();
-//   var start_time_val=time_val[0];
-//   var end_time_val=time_val[time_val.length-1];
-
-
-//   //Calculate the total distance travelled
-//   var total_km = 0;
-
-//   for(i = 0; i < myCoords.length; i++){
-      
-//       if(i == (myCoords.length - 1)){
-//           break;
-//         }
-//       console.log(myCoords[i]);
-//       console.log(myCoords[i][0]);
-//       total_km += gps_distance(myCoords[i][0],myCoords[i][1], myCoords[i+1][0], myCoords[i+1][1]);
-//    }
-
-//   console.log(myCoords);
-//   console.log(total_km);
-//   total_mi = total_km * 0.621371;
-//   console.log(total_mi);
-//   total_mi_rounded = total_mi.toFixed(2);
-//   console.log(total_mi_rounded);
-  
-//   // Calculate the total time taken for the elapsed time of walk.
-
-//   navigator.geolocation.clearWatch(watchId);
-//   condition = false;
-//   // console.log(track_data_str);
-//   var url = base_url + "/m_save_map";
-//   var obedience_val=5;
-//   var dog_mood_val=3;
-//   var pic="lsjkldf";
-//   console.log(event_data);
-//   // var obedience_val=document.getElementById('obedience').value;
-//   // var dog_mood_val=document.getElementById('dog_mood').value;
-//   var obj = {dogwalker_id: dogwalker_id_val, obedience_rating: obedience_val, 
-//               dog_mood: dog_mood_val, start_time: start_time_val,
-//               end_time: end_time_val, walk_location: tracking_data, elapsed_distance: total_mi_rounded, elapsed_time: pretty, events: event_data, walk_pic_url:pic};
-
-//   console.log(obj);
-//   // console.log(obj);
-//   data=JSON.stringify(obj);
-//   console.log(data);
-//   $.ajax({
-//     type:'POST',
-//     data: {json_vals: data},
-//     url: url,
-//     success: function(data){
-//         tracking_data=[];
-//         event_data=[];
-//         myCoords=[];
-//         last_values=[];
-//         time_val=[];
-//         alert('sms message successfully sent');
-//         window.location.href="#over_view_page";
-//     },
-//     error: function(data){
-//       alert('There was an error. Please try again.');
-//     }
-//   });
-//   console.log('got here')
-//   return false;
-//   // console.log(event_data_str);
-//  });
-
-// });
 
 $("#start_logging").live('click', function(){
   var start = Date.now();
@@ -308,6 +207,7 @@ $("#end_logging").live('click', function(){
   // console.log(obj);
   data=JSON.stringify(obj);
   console.log(data);
+
   $.ajax({
 
     type:'POST',
@@ -330,8 +230,6 @@ $("#end_logging").live('click', function(){
   console.log('got here')
   return false;
   // console.log(event_data_str);
-
-
   });
   
 
