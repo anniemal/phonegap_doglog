@@ -1,11 +1,11 @@
-
-var tracking_data = []; 
+var tracking_data = [];
 var event_data=[];/// array containing cor. objects
 var last_values=[];
 var time_val=[];
 var watchId=null;
 var map=null;
 var condition=true;
+
 var pretty=null;
 var seconds = null;
 var ticker = null;
@@ -13,8 +13,7 @@ var myCoords= [];
  
 function tick( )
 {
-  if (condition==true)
-  {   
+  if (condition===true){
     ++seconds;
     var secs = seconds;
     var hrs = Math.floor( secs / 3600 );
@@ -43,12 +42,12 @@ function gps_distance(lat1, lon1, lat2, lon2)
     var R = 6371; // km
     var dLat = (lat2-lat1) * (Math.PI / 180);
     var dLon = (lon2-lon1) * (Math.PI / 180);
-    var lat1 = lat1 * (Math.PI / 180);
-    var lat2 = lat2 * (Math.PI / 180);
+    lat1 = lat1 * (Math.PI / 180);
+    lat2 = lat2 * (Math.PI / 180);
 
     var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-            Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
-    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+            Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2);
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
     var d = R * c;
     console.log(d);
     return d;
@@ -62,7 +61,7 @@ function onSuccess(position){
   console.log(myLat,myLong);
   var myLatLng = new google.maps.LatLng(myLat, myLong);
  
-  map.setCenter(myLatLng)
+  map.setCenter(myLatLng);
   tracking_data.push(myLatLng);
   time_val.push(time);
   last_values=[myLat,myLong];
@@ -77,7 +76,7 @@ function onSuccess(position){
 
     // Apply the line to the map
     trackPath.setMap(map);
-};
+}
 
 $("#poop").live('click',function(){
   
@@ -141,7 +140,7 @@ $("#pee").live('click',function(){
 
 function onError(error){
 
-	alert ('error')
+	alert ('error');
 }
 
 $("#start_logging").live('click', function(){
@@ -193,13 +192,13 @@ $("#end_logging").live('click', function(){
   var url = base_url + "/m_save_map";
   var obedience_val=5;
   var dog_mood_val=3;
-  var pic="lsjkldf"
+  var pic="lsjkldf";
   console.log(event_data);
   start_time_val=String(start_time_val);
   end_time_val=String(end_time_val);
   // var obedience_val=document.getElementById('obedience').value;
   // var dog_mood_val=document.getElementById('dog_mood').value;
-  var obj = {dogwalker_id: dogwalker_id_val, obedience_rating: obedience_val, 
+  var obj = {dogwalker_id: dogwalker_id_val, obedience_rating: obedience_val,
               dog_mood: dog_mood_val, start_time: start_time_val,
               end_time: end_time_val, walk_location: tracking_data, elapsed_distance: total_mi_rounded, elapsed_time: pretty, events: event_data, walk_pic_url:pic};
 
@@ -221,13 +220,12 @@ $("#end_logging").live('click', function(){
         time_val=[];
         alert("Thanks for loggin'! Your log has been sent via text to the dog owner.");
         window.location.href="#over_view_page";
-
     },
     error: function(data){
       alert('There was an error. Please try again.');
     }
   });
-  console.log('got here')
+  console.log('got here');
   return false;
   // console.log(event_data_str);
   });
